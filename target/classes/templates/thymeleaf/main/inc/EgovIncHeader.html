@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${pageTitle}">Default Title</title>
+    <!-- 추가적인 CSS 및 JS 파일 -->
+    <link th:href="@{/resources/css/style.css}" rel="stylesheet">
+    <script th:src="@{/resources/js/script.js}"></script>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <a th:href="@{/}">
+                <img th:src="@{/resources/images/logo.png}" alt="Logo">
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li th:each="menu : ${menuList}">
+                    <a th:href="${menu.link}" th:text="${menu.name}">Menu Item</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+</body>
+</html>
