@@ -19,6 +19,7 @@ import org.egovframe.rte.fdl.property.EgovPropertyService;
 
 import javax.annotation.Resource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -41,14 +42,17 @@ import org.springframework.stereotype.Service;
 @Service("EgovBBSManageService")
 public class EgovBBSManageServiceImpl implements EgovBBSManageService {
 
-    @Resource(name = "BBSManageDAO")
+	@Autowired
     private BBSManageDAO bbsMngDAO;
 
-    @Resource(name = "EgovFileMngService")
+    @Autowired
     private EgovFileMngService fileService;
 
-    @Resource(name = "propertiesService")
+    @Autowired
     protected EgovPropertyService propertyService;
+    
+    @Autowired
+    private EgovFileMngService fileMngService;
 
     /**
      * 게시물 한 건을 삭제 한다.

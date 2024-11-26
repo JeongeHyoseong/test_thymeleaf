@@ -5,6 +5,8 @@ import egovframework.example.vo.FileVO;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.stereotype.Service;
+
 /**
  * 파일정보 관리를 위한 서비스 인터페이스
  * Spring Boot용 변환 버전
@@ -13,6 +15,7 @@ import java.util.Map;
  * @since 2009.03.25
  * @version 1.1
  */
+
 public interface EgovFileMngService {
 
     /**
@@ -40,7 +43,7 @@ public interface EgovFileMngService {
      * @return 파일 ID
      * @throws Exception 예외
      */
-    String insertFileInfs(List<?> fvoList) throws Exception;
+    String insertFileInfs(List<FileVO> fvoList) throws Exception;
 
     /**
      * 여러 개의 파일에 대한 정보(속성 및 상세)를 수정한다.
@@ -48,7 +51,7 @@ public interface EgovFileMngService {
      * @param fvoList 파일 VO 리스트
      * @throws Exception 예외
      */
-    void updateFileInfs(List<?> fvoList) throws Exception;
+    void updateFileInfs(List<FileVO> fvoList) throws Exception;
 
     /**
      * 여러 개의 파일을 삭제한다.
@@ -56,7 +59,7 @@ public interface EgovFileMngService {
      * @param fvoList 파일 VO 리스트
      * @throws Exception 예외
      */
-    void deleteFileInfs(List<?> fvoList) throws Exception;
+    void deleteFileInfs(List<FileVO> fvoList) throws Exception;
 
     /**
      * 하나의 파일을 삭제한다.

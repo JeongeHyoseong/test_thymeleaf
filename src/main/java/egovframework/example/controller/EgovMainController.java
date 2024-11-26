@@ -8,6 +8,7 @@ import egovframework.example.service.EgovBBSManageService;
 import egovframework.example.service.EgovMenuManageService;
 import egovframework.example.vo.MenuManageVO;
 import egovframework.example.service.EgovFaqManageService;
+import egovframework.example.service.EgovFileMngService;
 import egovframework.example.vo.FaqManageDefaultVO;
 import egovframework.example.service.EgovQustnrRespondInfoService;
 
@@ -35,6 +36,9 @@ public class EgovMainController {
 
     @Autowired
     private EgovQustnrRespondInfoService egovQustnrRespondInfoService;
+    
+    @Autowired
+    private EgovFileMngService egovFileMngService;
 
     @GetMapping("/")
     public String getMainPage(Model model) throws Exception {
