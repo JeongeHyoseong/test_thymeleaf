@@ -373,4 +373,6 @@
 			AND NTT_ID = #{nttId}
  		
  	</update>
+
+    
 </mapper>

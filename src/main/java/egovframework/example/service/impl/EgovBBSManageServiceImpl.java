@@ -39,7 +39,7 @@ import org.springframework.stereotype.Service;
  *  </pre>
  */
 @Service("EgovBBSManageService")
-public class EgovBBSManageServiceImpl extends EgovAbstractServiceImpl implements EgovBBSManageService {
+public class EgovBBSManageServiceImpl implements EgovBBSManageService {
 
     @Resource(name = "BBSManageDAO")
     private BBSManageDAO bbsMngDAO;
