@@ -19,7 +19,7 @@
     
     <div class="wrap">
         <!-- header start -->
-        <div th:replace="~{sym/mms/EgovHeader :: header}"></div>
+        <div th:replace="~{main/inc/EgovIncHeader :: header}"></div>
         <!-- //header end -->
         
         <div class="container">
@@ -86,7 +86,12 @@
                                 </div>
                                 <dl th:each="result : ${faqList}">
                                     <dt><span class="q">Q</span><a th:href="@{/uss/olh/faq/FaqListInqire.do}" th:text="${result.qestnSj}"></a></dt>
-                                    <dd><span class="a">A</span><span th:text="${#strings.substring(#strings.escapeXml(result.answerCn), 0, 70)}"></span></dd>
+                                    <dd>
+									    <span th:text="${result.answerCn != null && #strings.length(result.answerCn) > 70 
+									                    ? #strings.escapeXml(#strings.substring(result.answerCn, 0, 70)) 
+									                    : (result.answerCn != null ? #strings.escapeXml(result.answerCn) : '')}">
+									    </span>
+									</dd>
                                 </dl>
                                 <a th:href="@{/uss/olh/faq/FaqListInqire.do}" class="more">더보기</a>
                             </div>
@@ -123,7 +128,7 @@
         </div>
         
         <!-- footer 시작 -->
-        <div th:replace="~{sym/mms/EgovFooter :: footer}"></div>
+        <div th:replace="~{main/inc/EgovIncFooter :: footer}"></div>
         <!-- //footer 끝 -->
     </div>
 </body>

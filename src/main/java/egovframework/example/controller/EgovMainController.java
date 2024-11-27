@@ -95,29 +95,29 @@ public class EgovMainController {
         qVO.setLastIndex(paginationInfo.getLastRecordIndex());
         qVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 
-        model.addAttribute("qriList", egovQustnrRespondInfoService.selectQustnrRespondInfoManageList(qVO));
+        //model.addAttribute("qriList", egovQustnrRespondInfoService.selectQustnrRespondInfoManageList(qVO));
 
-        return "thymeleaf/main/EgovMainView";
+        return "main/EgovMainView";
     }
 
-    @GetMapping("/sym/mms/EgovHeader")
+    @GetMapping("main/inc/EgovIncHeader")
     public String selectHeader(@ModelAttribute("menuManageVO") MenuManageVO menuManageVO, Model model) throws Exception {
         if (EgovUserDetailsHelper.isAuthenticated()) {
             menuManageVO.setTmp_Id("사용자 ID");
-            model.addAttribute("list_headmenu", menuManageService.selectMainMenuHead(menuManageVO));
+            model.addAttribute("menuList", menuManageService.selectMainMenuHead(menuManageVO));
         } else {
             menuManageVO.setAuthorCode("ROLE_ANONYMOUS");
-            model.addAttribute("list_headmenu", menuManageService.selectMainMenuHeadByAuthor(menuManageVO));
+            model.addAttribute("menuList", menuManageService.selectMainMenuHeadByAuthor(menuManageVO));
         }
         return "main/inc/EgovIncHeader";
     }
 
-    @GetMapping("/sym/mms/EgovFooter")
+    @GetMapping("main/inc/EgovIncFooter")
     public String selectFooter() {
         return "main/inc/EgovIncFooter";
     }
 
-    @GetMapping("/sym/mms/EgovMenuLeft")
+    @GetMapping("main/inc/EgovMenuLeft")
     public String selectMenuLeft(Model model) {
         if (EgovUserDetailsHelper.isAuthenticated()) {
             model.addAttribute("lastLogoutDateTime", "2024-01-01 12:00:00");

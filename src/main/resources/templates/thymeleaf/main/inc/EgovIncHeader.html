@@ -18,9 +18,10 @@
         </div>
         <nav>
             <ul>
-                <li th:each="menu : ${menuList}">
-                    <a th:href="${menu.link}" th:text="${menu.name}">Menu Item</a>
-                </li>
+                <li th:if="${menuList == null || #lists.isEmpty(menuList)}">메뉴가 없습니다.</li>
+			    <li th:each="menu : ${menuList}">
+			        <a th:href="${menu.link}" th:text="${menu.name}">Menu Item</a>
+			    </li>
             </ul>
         </nav>
     </header>
